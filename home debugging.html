@@ -1,4 +1,115 @@
-const splash = document.getElementById('splash');
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="homeStyle.css" rel="stylesheet" />
+    <script src="universal.js" defer async></script>
+    <style>
+        body {
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+#splash {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0;
+}
+
+mainvas {
+    display: block;
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+vaschild {
+    background-image: url(brain.png);
+    position: absolute;
+    right: 0%;
+    width: 100px;
+    height: 100px;
+    z-index: 3;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+#cover {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    margin: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+#mainX {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65%;
+}
+
+menu button {
+    border: none;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+    width: 75%;
+}
+
+menu button img {
+    position: relative;
+    width: 100%;
+}
+
+menu {
+    top: -5%;
+    position: relative;
+    display: grid;
+    grid-template-columns: 30% 30%;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+    margin: 0;
+    gap: 0% 0%;
+    padding: 0;
+}
+
+mainvas {
+    display: block;
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+vaschild {
+    background-image: url(brain.png);
+    position: absolute;
+    right: 0%;
+    width: 100px;
+    height: 100px;
+    z-index: 3;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+    
+    </style>
+    <script src="homeScript.js" defer async>
+        const splash = document.getElementById('splash');
 const mainContent = document.querySelector('body');
 
 splash.onload = function () {
@@ -115,8 +226,6 @@ function Jian() {
             image.style.zIndex = "100000000";
             let clickaud = new Audio('splash.mp3');
             clickaud.play();
-
-
         } else {
             image.style.opacity = "0";//FINALLYLYYYYYY AUIDFHWAIUOFOWAIFAWOIFWAOIFGA IO
             image.style.zIndex = "0";
@@ -124,35 +233,38 @@ function Jian() {
     }, 700); // OK NA BA YUNG GANTO KATAGAL?
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    var creditsButton = document.getElementById("1");
-    var hiddenSocialDiv = document.getElementById("hidden-social1");
-    var starImage = document.getElementById("img1");
-
-    // start slide
-    function startAnimationAndShowImage() {
-
-        creditsButton.removeEventListener("click", startAnimationAndShowImage);
-        hiddenSocialDiv.style.zIndex = "100";
-        starImage.style.zIndex = "100";
-        starImage.classList.add("show");
-        starImage.style.display = "block";
-        starImage.style.animation = "slideRight 5s linear forwards";
-        creditsButton.addEventListener("click", revertOpacityAndReset);
-    }
-
-    function revertOpacityAndReset() {
-        starImage.style.left = "-300px";
-        starImage.style.animation = "none";
-        hiddenSocialDiv.style.zIndex = "0";
-        starImage.style.zIndex = "0";
-        creditsButton.removeEventListener("click", revertOpacityAndReset);
-        setTimeout(function () {
-            starImage.style.animation = "slideRight 5s linear forwards";
-            creditsButton.addEventListener("click", startAnimationAndShowImage);
-        }, 100);
-    }
+    </script>
+</head>
+<body>
+    <img src="splash.png" alt="png" id="splash">
+  
+    <mainvas>
 
 
-    creditsButton.addEventListener("click", startAnimationAndShowImage);
-});
+    </mainvas>
+    <container id="disappear">
+        <div id="cover"></div>
+    </container>
+
+        <img src="screenerMain.png" id="mainX" />
+
+       
+    <menu id="mainMenu">
+        <button>
+          <a href="main.html">
+            <img src="startBtn.png" />
+          </a>  
+        </button>
+        <button>
+            <img src="aboutBtn.png" />
+        </button>
+        <button>
+            <img src="creditBtn.png" />
+        </button>
+        <button>
+            <img src="instructBtn.png" onclick="Jian()"/>
+        </button>
+    </menu>
+
+</body>
+</html>
