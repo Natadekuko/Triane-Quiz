@@ -393,10 +393,12 @@ function red() {
     })
  
 
-    redBg.addEventListener('mouseover', () => {
+   setTimeout(()=>{
+       redBg.addEventListener('mouseover', () => {
         gimmickWrong()
         console.log("AEHUI")
     })
+   },15);
 
 
 }
