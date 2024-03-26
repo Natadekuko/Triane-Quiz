@@ -6,6 +6,14 @@
     overflow: hidden;
 }
 
+button {
+    letter-spacing: 1px;
+    background-color: transparent;
+    border: none;
+    font-size: 1em;
+    font-family: 'Yo';
+    font-weight: 600;
+}
 @font-face {
     font-family: 'Yo';
     src: url(customx.ttf);
@@ -131,4 +139,40 @@ menu {
     display: table-cell;
     vertical-align: middle;
     height: 100%;
+}
+
+#grinStart{
+    rotate: 180deg;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 0%;
+    transform: translateY(25%) translateX(0%);
+    z-index: 25;
+    left: 50%
+
+}
+
+#grinEnd {
+    rotate: 90deg;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%);
+    z-index: 25;
+    left: 0
+}
+
+#redN{
+    height: 100%;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute
+}
+
+#circ{
+    width: 10px;
+    height: 10px;
 }
