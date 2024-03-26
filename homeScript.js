@@ -1,3 +1,96 @@
+
+let clickaud = new Audio('click.mp3');
+
+
+const body = document.querySelector('body')
+
+console.log(body)
+body.addEventListener('mousedown', clickSound)
+function clickSound() {
+    clickaud.play()
+}
+
+
+window.onload = function () {
+    transitx()
+    const slideS = new Audio('slide.mp3')
+    const creditsButton = document.getElementById("1");
+    const hiddenSocialDiv = document.getElementById("hidden-social1");
+    const starImage = document.getElementById("img1");
+    creditsButton.addEventListener("click", just);
+    /*
+ 
+
+    function startAnimationAndShowImage() {
+
+        console.log('reached')
+        creditsButton.removeEventListener("click", startAnimationAndShowImage);
+        hiddenSocialDiv.style.zIndex = "100";
+        starImage.style.zIndex = "100";
+        starImage.classList.add("show");
+        starImage.style.display = "block";
+        starImage.style.animation = "slideRight 5s linear forwards";
+        setTimeout(() => {
+            hiddenSocialDiv.style.zIndex = '0'
+            starImage.style.zIndex = '0'
+        }, 3400)
+        creditsButton.addEventListener("click", revertOpacityAndReset);
+    }
+
+    function revertOpacityAndReset() {
+
+        console.log('breached')
+
+        starImage.style.left = "-300px";
+        starImage.style.animation = "none";
+        hiddenSocialDiv.style.zIndex = "100";
+        starImage.style.zIndex = "100";
+        creditsButton.removeEventListener("click", revertOpacityAndReset);
+
+        setTimeout(() => {
+            hiddenSocialDiv.style.zIndex = '0'
+            starImage.style.zIndex = '0'
+        }, 3400)
+        creditsButton.addEventListener("click", revertOpacityAndReset);
+
+        setTimeout(function () {
+            starImage.style.animation = "slideRight 5s linear forwards";
+            creditsButton.addEventListener("click", startAnimationAndShowImage);
+        }, 0);
+    }
+    */
+
+    function just() {
+
+        console.log('breached')
+
+        starImage.style.left = "-300px";
+        starImage.style.animation = "none";
+        hiddenSocialDiv.style.zIndex = "100";
+        starImage.style.zIndex = "-1";
+        starImage.style.display = "block";
+        starImage.style.animation = "slideRight 5s linear forwards";
+        slideS.play()
+        body.removeEventListener('mousedown', clickSound)
+
+        setTimeout(() => {
+
+            starImage.style.left = "-300px";
+            starImage.style.animation = "none";
+            starImage.style.animation = "";
+            starImage.style.display = "none";
+
+            hiddenSocialDiv.style.zIndex = '0'
+            starImage.style.zIndex = '0'
+            body.addEventListener('mousedown', clickSound)
+        }, 5000)
+
+      
+    }
+
+
+};
+
 const splash = document.getElementById('splash');
 const mainContent = document.querySelector('body');
 
@@ -12,7 +105,6 @@ const mainvas = document.querySelector("mainvas")
 let vaschildren = document.querySelectorAll('mainvas vaschild')
 let opac = 1;
 
-window.onload = transitx
 function transitx() {
 
 
@@ -26,6 +118,7 @@ function transitx() {
 let lasttop;
 
 spawn()
+
 function spawn() {
     let newVas = document.createElement("vaschild");
     let top = Math.random() * 100;
@@ -121,38 +214,57 @@ function Jian() {
             image.style.opacity = "0";//FINALLYLYYYYYY AUIDFHWAIUOFOWAIFAWOIFWAOIFGA IO
             image.style.zIndex = "0";
         }
-    }, 700); // OK NA BA YUNG GANTO KATAGAL?
+    }, 700); // OK NA BA YUNG GANTO KATAGAL?   PWEDE NA YAN
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    var creditsButton = document.getElementById("1");
-    var hiddenSocialDiv = document.getElementById("hidden-social1");
-    var starImage = document.getElementById("img1");
+const jakl = document.getElementById("mamsndie")
+const ten = document.getElementById("aboutsquare")
 
-    // start slide
-    function startAnimationAndShowImage() {
+jakl.addEventListener("click", abtlisten)
 
-        creditsButton.removeEventListener("click", startAnimationAndShowImage);
-        hiddenSocialDiv.style.zIndex = "100";
-        starImage.style.zIndex = "100";
-        starImage.classList.add("show");
-        starImage.style.display = "block";
-        starImage.style.animation = "slideRight 5s linear forwards";
-        creditsButton.addEventListener("click", revertOpacityAndReset);
+function abtlisten() {
+    ten.classList.add("ten")
+    setTimeout(float, 2500)
+}
+function float(){ 
+   console.log("p")
+    ten.addEventListener("click", EGOASP)
+
+     
+}
+
+function EGOASP() {
+    lipad(0)
+}
+
+function lipad(i = 0) {
+
+   
+    if (i === 0) {
+
+        ten.classList.remove("ten")
+
+    ten.removeEventListener("click", lipad)
+
+   }
+
+    console.log(ten.style.top = i + "%")
+
+
+    ten.style.top = - (i) + "%"
+    if(i<=200){
+        i++; 
+        setTimeout(() => {
+
+            requestAnimationFrame(()=>{
+                lipad(i)
+            })
+        }, 0);
+        return
+
+
     }
+    ten.addEventListener("click", lipad)
 
-    function revertOpacityAndReset() {
-        starImage.style.left = "-300px";
-        starImage.style.animation = "none";
-        hiddenSocialDiv.style.zIndex = "0";
-        starImage.style.zIndex = "0";
-        creditsButton.removeEventListener("click", revertOpacityAndReset);
-        setTimeout(function () {
-            starImage.style.animation = "slideRight 5s linear forwards";
-            creditsButton.addEventListener("click", startAnimationAndShowImage);
-        }, 100);
-    }
+}
 
-
-    creditsButton.addEventListener("click", startAnimationAndShowImage);
-});
